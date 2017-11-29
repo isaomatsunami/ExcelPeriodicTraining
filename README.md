@@ -1,0 +1,2 @@
+# ExcelPeriodicTraining
+Excelを忘れないための練習帳
