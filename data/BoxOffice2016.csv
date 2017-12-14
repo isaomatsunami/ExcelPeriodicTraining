@@ -1,4 +1,4 @@
-WeekOfYear,RankThisWeek,RankKastWeek,Title,Studio,Revenue(USD),NumOfTheaters,ReleaseWeek
+WeekOfYear,RankThisWeek,RankLastWeek,Title,Studio,Revenue(USD),NumOfTheaters,ReleaseWeek
 1,1,1,Star Wars: The Force Awakens,BV,118413774,4134,3
 1,2,2,Daddy's Home,Par.,36629298,3342,2
 1,3,9,The Hateful Eight,Wein.,21783610,2474,2
