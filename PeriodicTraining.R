@@ -83,12 +83,12 @@ batters[(batters$打率>=0.2) & (batters$打率<=0.5),]
 
 #### Q11.打率が0.1以下で本塁打が5本以下の選手だけ
 # tidyverseなら
-filter(batters, (打率<=0.1) | (本塁打<=5) ) %>% count()
+filter(batters, (打率<=0.1) & (本塁打<=5) ) %>% count()
 # 589人
 
 #### Q12.右打ちで0.3以上の選手
 # tidyverseなら
-filter(batters, (打率>=0.3) | (左右=="右打ち") ) %>% count()
+filter(batters, (打率>=0.3) & (左右=="右打ち") ) %>% count()
 # 395人
 
 ### 集計１
