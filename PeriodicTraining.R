@@ -54,7 +54,7 @@ batters <- arrange(batters, desc(打率))
 
 #### Q6.本塁打の多い順、ただし同じ場合は打率の高い順に並べ直す
 batters <- batters[order(batters$本塁打,batters$打率, decreasing=TRUE), ]
-# tifyverseなら
+# tidyverseなら
 batters <- arrange(batters, desc(本塁打), desc(打率))
 # 35本のゲレーロ、デスパイネでゲレーロが打率は上
 
@@ -62,14 +62,14 @@ batters <- arrange(batters, desc(本塁打), desc(打率))
 #### Q7.中日の選手だけにする。その人数を表示する
 chunichi <- batters[batters$チーム=="中日",]
 print( nrow(chunichi) )
-# tifyverseなら
+# tidyverseなら
 filter(batters, チーム=="中日") %>% count()
 # 61人
 
 #### Q8.阪神か広島の選手だけ（or条件）
 # ベクトルの論理演算子は&と|
 TigersANDCarp <- batters[(batters$チーム=="阪神") | (batters$チーム=="広島") ,]
-# tifyverseなら
+# tidyverseなら
 filter(batters, (チーム=="阪神") | (チーム=="広島") ) %>% count()
 # 106人
 
@@ -147,7 +147,7 @@ read_csv("data/NPL_batters.csv") %>%
   ungroup() %>%
   data.frame()
 
-### ピボットテーブル
+### テーブル
 #### Q18.縦に球団、横に安打、２塁打、３塁打、本塁打の合計となる表を作る
 
 # 1)テーブルをテーブルのまま集計する方法（素朴なやり方）
@@ -162,7 +162,7 @@ t <- rbind(SingleHit,TwoBase,ThreeBase,HRs)
 # tは転置（行と列を入れ替える関数）
 t(t)
 
-# 2)reshape2でテーブルを溶かす方法(Excelのunpivotと同じ)
+# 2)reshape2でテーブルを溶かす方法(Excelのreverse pivotと同じ)
 library(reshape2)
 
 batters <- read_csv("data/NPL_batters.csv")
