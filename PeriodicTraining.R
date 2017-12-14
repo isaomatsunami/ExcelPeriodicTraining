@@ -257,6 +257,8 @@ batters %>%
 mergedTable <- merge(batters, moneys, by.x="name", by.y="name", all = TRUE)
 onlyInBatters <- mergedTable[is.na(mergedTable$money), ]
 # これが年俸調査が必要な選手のリストになる
+# tidyverse風ならanti_joinで一発
+batters %>% anti_join(moneys, by="name")
 
 #### Q6.4 安打１本の値段の列を作り、並べ替える
 mergedTable$moneyPerHit <- mergedTable$money/mergedTable$安打
